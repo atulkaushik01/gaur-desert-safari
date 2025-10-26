@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://gaurdesertsafari.com/sitemap.xml
+Sitemap: https://gaurdesertsafari.in/sitemap.xml
 
 # SEO Directives
 User-agent: Googlebot
