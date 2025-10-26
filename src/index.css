@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* Bricolage Grotesque font apply karo pure website ke liye */
+:root {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+}
+
+/* Ensure all elements use Bricolage Grotesque */
+* {
+  font-family: inherit;
+}
+
+body {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+}
