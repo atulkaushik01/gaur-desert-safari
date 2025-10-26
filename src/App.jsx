@@ -10,17 +10,14 @@ import Footer from './components/footer';
 const App = () => {
   return (
     <Router>
-      {/* Full screen container - Background yahan set karein */}
       <div className="min-h-screen">
         <Navbar />
-        
-        {/* Content that scrolls behind navbar */}
         <main className="min-h-screen">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Destinations" element={<Destinations />} />
-            <Route path="/Packages" element={<Packages />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/destinations" element={<Destinations />} />
+            <Route path="/packages" element={<Packages />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Home />} />
           </Routes>
