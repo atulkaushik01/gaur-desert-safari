@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import ScrollVelocity from "../components/scrollVelocity";
+import ScrollVelocity from "../components/ScrollVelocity";
 import Masonry from "../components/masonryImages";
 import Testimonials from "../components/testimonial";
 import PackageFeatures from "../components/packageFeatures";
