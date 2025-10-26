@@ -176,7 +176,7 @@ ${formData.message || 'Interested in desert safari experience'}
         {/* Content - Ultra Mobile Friendly */}
         <div className="relative z-10 text-center text-white w-full px-3 sm:px-6 lg:px-8 mx-auto mt-6 md:mt-0 max-w-[95vw]">
           {/* Main Heading */}
-          <h1 className="text-[.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-8xl font-bold mb-4 sm:mb-6">
+          <h1 className="text-[.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Experience The
             <span className="block text-yellow-400 mt-2 sm:mt-2">
               Desert Safari

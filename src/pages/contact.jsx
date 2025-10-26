@@ -118,8 +118,6 @@ const Contact = () => {
                   <h3 className="font-semibold text-yellow-400">Email Us</h3>
                 </div>
                 <p className="text-gray-300">atulkaushik2311@gmail.com</p>
-                <p className="text-gray-300">info@gaurdesertsafari.com</p>
-                <p className="text-gray-300">bookings@gaurdesertsafari.com</p>
               </div>
             </div>
           </div>
