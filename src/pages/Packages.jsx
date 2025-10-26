@@ -28,13 +28,14 @@ const Packages = () => {
     {
       id: 1,
       name: "Heritage Explorer",
-      price: "₹2,499",
-      duration: "6 Hours",
+      price: "₹999",
+      duration: "4 Hours",
       places: [
         "Golden Fort",
         "Patwon Ki Haveli",
         "Salem Singh Haveli",
         "Gadisar Lake",
+        "War Museum",
       ],
       highlights: [
         "Guided Fort Tour",
@@ -47,13 +48,13 @@ const Packages = () => {
     {
       id: 2,
       name: "Desert Adventure",
-      price: "₹3,999",
+      price: "₹2,999",
       duration: "8 Hours",
       places: [
-        "Sam Sand Dunes",
+        "Sam Sand Dunes (1 Night Stay In Camp)",
         "Camel Safari",
-        "Cultural Show",
-        "Desert Camp Dinner",
+        "Cultural Show (Live Performance -DJ Night)",
+        "Desert Camp Dinner + Breakfast",
       ],
       highlights: [
         "Camel Ride",
@@ -66,30 +67,27 @@ const Packages = () => {
     {
       id: 3,
       name: "Mystical Jaisalmer",
-      price: "₹4,499",
-      duration: "10 Hours",
+      price: "₹799",
+      duration: "3 Hours",
       places: [
-        "Kuldhara Village",
+        "Kuldhara Village (World 3rd Haunted Place)",
         "Bada Bagh",
-        "Jaisalmer War Museum",
-        "Tanot Mata Temple",
       ],
       highlights: [
         "Ghost Village",
         "Royal Cenotaphs",
-        "War History",
-        "Sacred Temple",
       ],
       bestFor: "Mystery & History Buffs",
     },
     {
       id: 4,
-      name: "Patriotic Trail",
-      price: "₹5,999",
+      name: "Patriotic Trail",  
+      price: "₹2,499",
       duration: "12 Hours",
-      places: ["Longewala", "Jaisalmer Border", "Tanot Mata", "War Museum"],
+      places: ["Tanot Mata Temple", "Longewala", "Jaisalmer Border Visit (0 Point)"],
       highlights: [
-        "Border Visit",
+        "Tanot Mata Temple",
+        "Jaisalmer Border Visit",
         "War Memorial",
         "Temple Blessings",
         "Army Stories",
@@ -99,12 +97,12 @@ const Packages = () => {
     {
       id: 5,
       name: "Complete Jaisalmer",
-      price: "₹7,999",
-      duration: "2 Days",
+      price: "₹11,999",
+      duration: "1 Days",
       places: [
         "All 12 Major Attractions",
         "Desert Camp Stay",
-        "All Meals Included",
+        "Breakfast & Dinner",
       ],
       highlights: [
         "Comprehensive Tour",
