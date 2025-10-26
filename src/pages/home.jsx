@@ -195,7 +195,7 @@ ${formData.message || "Interested in desert safari experience"}
           <p className="text-[0.9rem] leading-snug sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-[90vw] sm:max-w-2xl md:max-w-3xl mx-auto">
             Experience the ultimate desert safari in Jaisalmer with Gaur Desert
             Safari. Book jeep safari, camel rides, dune bashing and sandboarding
-            adventures. 25+ years of trusted service in Rajasthan tourism.
+            adventures. 10+ years of trusted service in Rajasthan tourism.
           </p>
 
           {/* CTA Buttons */}
