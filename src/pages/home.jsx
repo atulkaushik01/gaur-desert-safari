@@ -153,10 +153,10 @@ ${formData.message || 'Interested in desert safari experience'}
 
   return (
     <>
-      {/* Banner Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0">
+      {/* Banner Section - Fixed padding and z-index issues */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
         {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full h-full z-0">
           <video
             ref={videoRef}
             autoPlay
@@ -173,10 +173,10 @@ ${formData.message || 'Interested in desert safari experience'}
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        {/* Content - Ultra Mobile Friendly */}
-        <div className="relative z-10 text-center text-white w-full px-3 sm:px-6 lg:px-8 mx-auto mt-6 md:mt-0 max-w-[95vw]">
+        {/* Content - Fixed z-index and spacing */}
+        <div className="relative z-10 text-center text-white w-full px-3 sm:px-6 lg:px-8 mx-auto mt-8 md:mt-0 max-w-[95vw]">
           {/* Main Heading */}
-          <h1 className="text-[2.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-8xl font-bold mb-4 sm:mb-6">
+          <h1 className="text-[2.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Experience The
             <span className="block text-yellow-400 mt-2 sm:mt-2">
               Desert Safari
@@ -205,8 +205,8 @@ ${formData.message || 'Interested in desert safari experience'}
             </button>
           </div>
 
-          {/* Features - Single column on very small screens */}
-          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-16 max-w-[90vw] sm:max-w-4xl mx-auto">
+          {/* Features - Added bottom margin to prevent overlap */}
+          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-16 mb-16 sm:mb-20 max-w-[90vw] sm:max-w-4xl mx-auto">
             {[
               {
                 icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
@@ -252,8 +252,8 @@ ${formData.message || 'Interested in desert safari experience'}
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden sm:block">
+        {/* Scroll Indicator - Fixed positioning and visibility */}
+        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="animate-bounce">
             <svg
               className="w-5 h-5 sm:w-6 sm:h-6 text-white"
@@ -426,7 +426,7 @@ ${formData.message || 'Interested in desert safari experience'}
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-linear-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <FaWhatsapp className="w-5 h-5" />
                 <span>Send via WhatsApp</span>
@@ -527,7 +527,7 @@ ${formData.message || 'Interested in desert safari experience'}
       )}
 
       {/* Running Text */}
-      <div>
+      <div className="relative z-10">
         <ScrollVelocity
           texts={[
             "Jaisalmer War Museum • Gadisar Lake • Golden Fort • Salem Singh Haveli • Patwo Ki Haveli • Badabagh",
@@ -535,13 +535,13 @@ ${formData.message || 'Interested in desert safari experience'}
           ]}
           velocity={100}
           className="custom-scroll-text text-white"
-          parallaxClassName="bg-black py-4 "
+          parallaxClassName="bg-black py-4"
         />
       </div>
 
       {/* Image Gallery */}
-      <div className="bg-black min-h-screen py-8">
-        <div className="container mx-auto">
+      <div className="bg-black min-h-screen py-8 relative z-10">
+        <div className="container mx-auto px-4">
           <Masonry
             items={items}
             ease="power3.out"
@@ -558,13 +558,19 @@ ${formData.message || 'Interested in desert safari experience'}
       </div>
 
       {/* Testimonials */}
-      <Testimonials />
+      <div className="relative z-10">
+        <Testimonials />
+      </div>
 
       {/* Package Features Section */}
-          <PackageFeatures />
+      <div className="relative z-10">
+        <PackageFeatures />
+      </div>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <div className="relative z-10">
+        <FAQSection />
+      </div>
 
       {/* Custom CSS for Glassmorphism */}
       <style jsx>{`
