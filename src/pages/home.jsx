@@ -4,7 +4,15 @@ import Masonry from "../components/masonryImages";
 import Testimonials from "../components/testimonial";
 import PackageFeatures from "../components/packageFeatures";
 import FAQSection from "../components/faq";
-import { FaTimes, FaWhatsapp, FaUser, FaPhone, FaUsers, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import {
+  FaTimes,
+  FaWhatsapp,
+  FaUser,
+  FaPhone,
+  FaUsers,
+  FaCalendar,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Home = () => {
   const videoRef = useRef(null);
@@ -12,12 +20,12 @@ const Home = () => {
   const [showBookingPopup, setShowBookingPopup] = useState(false);
   const [showPackagesMenu, setShowPackagesMenu] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    people: '2',
-    date: '',
-    message: ''
+    name: "",
+    phone: "",
+    email: "",
+    people: "2",
+    date: "",
+    message: "",
   });
 
   const items = [
@@ -87,7 +95,7 @@ const Home = () => {
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -97,9 +105,9 @@ const Home = () => {
     // Set default date to tomorrow
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      date: tomorrow.toISOString().split('T')[0]
+      date: tomorrow.toISOString().split("T")[0],
     }));
   };
 
@@ -121,11 +129,11 @@ const Home = () => {
 📅 Preferred Date: ${formData.date}
 
 *Additional Requirements:*
-${formData.message || 'Interested in desert safari experience'}
+${formData.message || "Interested in desert safari experience"}
 
 ---
 🌵 Booked via Gaur Desert Safari Website
-⏰ Submitted at: ${new Date().toLocaleString('en-IN')}
+⏰ Submitted at: ${new Date().toLocaleString("en-IN")}
     `;
 
     return encodeURIComponent(bookingDetails);
@@ -134,20 +142,20 @@ ${formData.message || 'Interested in desert safari experience'}
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const phoneNumber = '919772800077'; // Your WhatsApp number
+
+    const phoneNumber = "919772800077"; // Your WhatsApp number
     const message = generateWhatsAppMessage();
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    window.open(whatsappURL, '_blank');
+
+    window.open(whatsappURL, "_blank");
     setShowBookingPopup(false);
     setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      people: '2',
-      date: '',
-      message: ''
+      name: "",
+      phone: "",
+      email: "",
+      people: "2",
+      date: "",
+      message: "",
     });
   };
 
@@ -185,19 +193,20 @@ ${formData.message || 'Interested in desert safari experience'}
 
           {/* Subtitle */}
           <p className="text-[0.9rem] leading-snug sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-[90vw] sm:max-w-2xl md:max-w-3xl mx-auto">
-            Embark on an unforgettable journey through golden sands,
-            breathtaking sunsets, and authentic cultural experiences.
+            Experience the ultimate desert safari in Jaisalmer with Gaur Desert
+            Safari. Book jeep safari, camel rides, dune bashing and sandboarding
+            adventures. 25+ years of trusted service in Rajasthan tourism.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12">
-            <button 
+            <button
               onClick={handleBookSafari}
               className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg w-full max-w-[280px] sm:w-auto"
             >
               Book Your Safari
             </button>
-            <button 
+            <button
               onClick={handleExplorePackages}
               className="border-2 border-white hover:bg-white/20 text-white font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto"
             >
@@ -279,8 +288,12 @@ ${formData.message || 'Interested in desert safari experience'}
             {/* Popup Header */}
             <div className="flex justify-between items-center p-6 border-b border-gray-700">
               <div>
-                <h3 className="text-xl font-bold text-yellow-400">Book Your Desert Safari</h3>
-                <p className="text-gray-300 text-sm">Customized Experience • Best Price Guarantee</p>
+                <h3 className="text-xl font-bold text-yellow-400">
+                  Book Your Desert Safari
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Customized Experience • Best Price Guarantee
+                </p>
               </div>
               <button
                 onClick={() => setShowBookingPopup(false)}
@@ -292,7 +305,9 @@ ${formData.message || 'Interested in desert safari experience'}
 
             {/* Package Highlights */}
             <div className="p-6 border-b border-gray-700">
-              <h4 className="text-yellow-400 font-semibold mb-3">What We Offer:</h4>
+              <h4 className="text-yellow-400 font-semibold mb-3">
+                What We Offer:
+              </h4>
               <div className="grid grid-cols-2 gap-2 text-sm text-gray-300">
                 <div className="flex items-center">
                   <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
@@ -401,7 +416,7 @@ ${formData.message || 'Interested in desert safari experience'}
                     value={formData.date}
                     onChange={handleInputChange}
                     required
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                     className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
                   />
                 </div>
@@ -446,7 +461,9 @@ ${formData.message || 'Interested in desert safari experience'}
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="glassmorphism-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center p-6 border-b border-gray-700">
-              <h3 className="text-2xl font-bold text-yellow-400">Our Safari Packages</h3>
+              <h3 className="text-2xl font-bold text-yellow-400">
+                Our Safari Packages
+              </h3>
               <button
                 onClick={() => setShowPackagesMenu(false)}
                 className="text-gray-400 hover:text-white transition-colors duration-300"
@@ -454,18 +471,24 @@ ${formData.message || 'Interested in desert safari experience'}
                 <FaTimes className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Package 1 */}
                 <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
-                  <h4 className="text-xl font-bold text-yellow-400 mb-2">Heritage Explorer</h4>
-                  <p className="text-gray-300 mb-4">Historical places & cultural experience</p>
-                  <div className="text-2xl font-bold text-white mb-4">₹2,499</div>
-                  <button 
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Heritage Explorer
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Historical places & cultural experience
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹2,499
+                  </div>
+                  <button
                     onClick={() => {
                       setShowPackagesMenu(false);
-                      window.location.href = '/packages';
+                      window.location.href = "/packages";
                     }}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
                   >
@@ -475,13 +498,19 @@ ${formData.message || 'Interested in desert safari experience'}
 
                 {/* Package 2 */}
                 <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
-                  <h4 className="text-xl font-bold text-yellow-400 mb-2">Desert Adventure</h4>
-                  <p className="text-gray-300 mb-4">Camel safari & cultural shows</p>
-                  <div className="text-2xl font-bold text-white mb-4">₹3,999</div>
-                  <button 
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Desert Adventure
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Camel safari & cultural shows
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹3,999
+                  </div>
+                  <button
                     onClick={() => {
                       setShowPackagesMenu(false);
-                      window.location.href = '/packages';
+                      window.location.href = "/packages";
                     }}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
                   >
@@ -491,13 +520,19 @@ ${formData.message || 'Interested in desert safari experience'}
 
                 {/* Package 3 */}
                 <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
-                  <h4 className="text-xl font-bold text-yellow-400 mb-2">Complete Experience</h4>
-                  <p className="text-gray-300 mb-4">2 days with all attractions</p>
-                  <div className="text-2xl font-bold text-white mb-4">₹7,999</div>
-                  <button 
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Complete Experience
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    2 days with all attractions
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹7,999
+                  </div>
+                  <button
                     onClick={() => {
                       setShowPackagesMenu(false);
-                      window.location.href = '/packages';
+                      window.location.href = "/packages";
                     }}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
                   >
@@ -507,10 +542,16 @@ ${formData.message || 'Interested in desert safari experience'}
 
                 {/* Package 4 */}
                 <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
-                  <h4 className="text-xl font-bold text-yellow-400 mb-2">Custom Package</h4>
-                  <p className="text-gray-300 mb-4">Tailored to your preferences</p>
-                  <div className="text-2xl font-bold text-white mb-4">Custom Price</div>
-                  <button 
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Custom Package
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Tailored to your preferences
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    Custom Price
+                  </div>
+                  <button
                     onClick={() => {
                       setShowPackagesMenu(false);
                       handleBookSafari();

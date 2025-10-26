@@ -1,5 +1,13 @@
-import { useState, useRef } from 'react';
-import { FaTimes, FaWhatsapp, FaUser, FaPhone, FaUsers, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import { useState, useRef } from "react";
+import {
+  FaTimes,
+  FaWhatsapp,
+  FaUser,
+  FaPhone,
+  FaUsers,
+  FaCalendar,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Packages = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
@@ -7,12 +15,12 @@ const Packages = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef(null);
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    people: '2',
-    date: '',
-    message: ''
+    name: "",
+    phone: "",
+    email: "",
+    people: "2",
+    date: "",
+    message: "",
   });
 
   const packages = [
@@ -22,45 +30,89 @@ const Packages = () => {
       name: "Heritage Explorer",
       price: "₹2,499",
       duration: "6 Hours",
-      places: ["Golden Fort", "Patwon Ki Haveli", "Salem Singh Haveli", "Gadisar Lake"],
-      highlights: ["Guided Fort Tour", "Haveli Photography", "Lake Sunset", "Local Guide"],
-      bestFor: "History & Architecture Lovers"
+      places: [
+        "Golden Fort",
+        "Patwon Ki Haveli",
+        "Salem Singh Haveli",
+        "Gadisar Lake",
+      ],
+      highlights: [
+        "Guided Fort Tour",
+        "Haveli Photography",
+        "Lake Sunset",
+        "Local Guide",
+      ],
+      bestFor: "History & Architecture Lovers",
     },
     {
       id: 2,
       name: "Desert Adventure",
       price: "₹3,999",
-      duration: "8 Hours", 
-      places: ["Sam Sand Dunes", "Camel Safari", "Cultural Show", "Desert Camp Dinner"],
-      highlights: ["Camel Ride", "Sunset View", "Folk Dance", "Traditional Dinner"],
-      bestFor: "Adventure Seekers"
+      duration: "8 Hours",
+      places: [
+        "Sam Sand Dunes",
+        "Camel Safari",
+        "Cultural Show",
+        "Desert Camp Dinner",
+      ],
+      highlights: [
+        "Camel Ride",
+        "Sunset View",
+        "Folk Dance",
+        "Traditional Dinner",
+      ],
+      bestFor: "Adventure Seekers",
     },
     {
       id: 3,
       name: "Mystical Jaisalmer",
       price: "₹4,499",
       duration: "10 Hours",
-      places: ["Kuldhara Village", "Bada Bagh", "Jaisalmer War Museum", "Tanot Mata Temple"],
-      highlights: ["Ghost Village", "Royal Cenotaphs", "War History", "Sacred Temple"],
-      bestFor: "Mystery & History Buffs"
+      places: [
+        "Kuldhara Village",
+        "Bada Bagh",
+        "Jaisalmer War Museum",
+        "Tanot Mata Temple",
+      ],
+      highlights: [
+        "Ghost Village",
+        "Royal Cenotaphs",
+        "War History",
+        "Sacred Temple",
+      ],
+      bestFor: "Mystery & History Buffs",
     },
     {
       id: 4,
-      name: "Patriotic Trail", 
+      name: "Patriotic Trail",
       price: "₹5,999",
       duration: "12 Hours",
       places: ["Longewala", "Jaisalmer Border", "Tanot Mata", "War Museum"],
-      highlights: ["Border Visit", "War Memorial", "Temple Blessings", "Army Stories"],
-      bestFor: "Patriotic Travelers"
+      highlights: [
+        "Border Visit",
+        "War Memorial",
+        "Temple Blessings",
+        "Army Stories",
+      ],
+      bestFor: "Patriotic Travelers",
     },
     {
       id: 5,
       name: "Complete Jaisalmer",
-      price: "₹7,999", 
+      price: "₹7,999",
       duration: "2 Days",
-      places: ["All 12 Major Attractions", "Desert Camp Stay", "All Meals Included"],
-      highlights: ["Comprehensive Tour", "Overnight Stay", "All Transfers", "Expert Guide"],
-      bestFor: "First-time Visitors"
+      places: [
+        "All 12 Major Attractions",
+        "Desert Camp Stay",
+        "All Meals Included",
+      ],
+      highlights: [
+        "Comprehensive Tour",
+        "Overnight Stay",
+        "All Transfers",
+        "Expert Guide",
+      ],
+      bestFor: "First-time Visitors",
     },
     {
       id: 6,
@@ -68,22 +120,36 @@ const Packages = () => {
       price: "₹3,499",
       duration: "7 Hours",
       places: ["Khuri Desert", "Sand Dunes", "Village Visit", "Local Culture"],
-      highlights: ["Less Crowded", "Authentic Experience", "Village Life", "Peaceful Dunes"],
-      bestFor: "Peace Seekers"
-    }
+      highlights: [
+        "Less Crowded",
+        "Authentic Experience",
+        "Village Life",
+        "Peaceful Dunes",
+      ],
+      bestFor: "Peace Seekers",
+    },
   ];
 
   const allPlaces = [
-    "Jaisalmer War Museum", "Gadisar Lake", "Golden Fort", "Salem Singh Haveli",
-    "Patwon Ki Haveli", "Bada Bagh", "Kuldhara", "Sam Sand Dunes", 
-    "Khuri Desert", "Tanot Mata", "Longewala", "Jaisalmer Border"
+    "Jaisalmer War Museum",
+    "Gadisar Lake",
+    "Golden Fort",
+    "Salem Singh Haveli",
+    "Patwon Ki Haveli",
+    "Bada Bagh",
+    "Kuldhara",
+    "Sam Sand Dunes",
+    "Khuri Desert",
+    "Tanot Mata",
+    "Longewala",
+    "Jaisalmer Border",
   ];
 
   // Handle form input changes
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -94,9 +160,9 @@ const Packages = () => {
     // Set default date to tomorrow
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      date: tomorrow.toISOString().split('T')[0]
+      date: tomorrow.toISOString().split("T")[0],
     }));
   };
 
@@ -119,14 +185,14 @@ const Packages = () => {
 📅 Date: ${formData.date}
 
 *Places Included:*
-${selectedPackage.places.map(place => `📍 ${place}`).join('\n')}
+${selectedPackage.places.map((place) => `📍 ${place}`).join("\n")}
 
 *Additional Message:*
-${formData.message || 'No additional message'}
+${formData.message || "No additional message"}
 
 ---
 🌵 Booked via Gaur Desert Safari Website
-⏰ Submitted at: ${new Date().toLocaleString('en-IN')}
+⏰ Submitted at: ${new Date().toLocaleString("en-IN")}
     `;
 
     return encodeURIComponent(packageDetails);
@@ -135,20 +201,20 @@ ${formData.message || 'No additional message'}
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const phoneNumber = '919772800077'; // Your WhatsApp number
+
+    const phoneNumber = "919772800077"; // Your WhatsApp number
     const message = generateWhatsAppMessage();
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    window.open(whatsappURL, '_blank');
+
+    window.open(whatsappURL, "_blank");
     setShowPopup(false);
     setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      people: '2',
-      date: '',
-      message: ''
+      name: "",
+      phone: "",
+      email: "",
+      people: "2",
+      date: "",
+      message: "",
     });
   };
 
@@ -168,7 +234,7 @@ ${formData.message || 'No additional message'}
           <source src="./videos/sand.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        
+
         {/* Dark Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
@@ -178,11 +244,11 @@ ${formData.message || 'No additional message'}
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl mt-20 font-bold text-yellow-400 mb-4">
-            Exclusive Desert Safari Packages
+            Desert Safari Packages Jaisalmer - Best Prices & Deals
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Choose from our carefully curated packages to experience the best of Jaisalmer. 
-            10+ years of expertise in creating unforgettable memories.
+            Choose from our exclusive desert tour packages including camel
+            safari, jeep tours and cultural experiences in Jaisalmer desert.
           </p>
           <div className="w-24 h-1 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
         </div>
@@ -195,7 +261,10 @@ ${formData.message || 'No additional message'}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {allPlaces.map((place, index) => (
-                <div key={index} className="flex items-center space-x-3 p-3 bg-black/30 rounded-lg">
+                <div
+                  key={index}
+                  className="flex items-center space-x-3 p-3 bg-black/30 rounded-lg"
+                >
                   <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center shrink-0">
                     <span className="text-black font-bold text-sm">🏜️</span>
                   </div>
@@ -216,9 +285,13 @@ ${formData.message || 'No additional message'}
               >
                 {/* Package Header */}
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-yellow-400 mb-2">{pkg.name}</h3>
+                  <h3 className="text-2xl font-bold text-yellow-400 mb-2">
+                    {pkg.name}
+                  </h3>
                   <div className="flex justify-center items-baseline space-x-2 mb-3">
-                    <span className="text-3xl font-bold text-white">{pkg.price}</span>
+                    <span className="text-3xl font-bold text-white">
+                      {pkg.price}
+                    </span>
                     <span className="text-gray-400">/ person</span>
                   </div>
                   <div className="bg-yellow-400/20 text-yellow-400 py-1 px-3 rounded-full text-sm font-semibold inline-block">
@@ -240,7 +313,10 @@ ${formData.message || 'No additional message'}
                   </h4>
                   <ul className="space-y-2">
                     {pkg.places.map((place, index) => (
-                      <li key={index} className="flex items-center text-gray-300 text-sm">
+                      <li
+                        key={index}
+                        className="flex items-center text-gray-300 text-sm"
+                      >
                         <span className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></span>
                         {place}
                       </li>
@@ -282,28 +358,42 @@ ${formData.message || 'No additional message'}
         {/* Why Choose Us Section */}
         <div className="max-w-6xl mx-auto mt-16">
           <div className="glassmorphism-card rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-yellow-400 mb-6">Why Choose Gaur Desert Safari?</h2>
+            <h2 className="text-2xl font-bold text-yellow-400 mb-6">
+              Why Choose Gaur Desert Safari?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🏆</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">10+ Years Experience</h3>
-                <p className="text-gray-300">Trusted by thousands of travelers since 1999</p>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  10+ Years Experience
+                </h3>
+                <p className="text-gray-300">
+                  Trusted by thousands of travelers since 1999
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💰</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Best Price Guarantee</h3>
-                <p className="text-gray-300">Quality experiences at competitive prices</p>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  Best Price Guarantee
+                </h3>
+                <p className="text-gray-300">
+                  Quality experiences at competitive prices
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🛡️</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">100% Safety</h3>
-                <p className="text-gray-300">Well-maintained vehicles & experienced guides</p>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  100% Safety
+                </h3>
+                <p className="text-gray-300">
+                  Well-maintained vehicles & experienced guides
+                </p>
               </div>
             </div>
           </div>
@@ -316,8 +406,12 @@ ${formData.message || 'No additional message'}
               {/* Popup Header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-700">
                 <div>
-                  <h3 className="text-xl font-bold text-yellow-400">Book {selectedPackage.name}</h3>
-                  <p className="text-gray-300 text-sm">{selectedPackage.price} • {selectedPackage.duration}</p>
+                  <h3 className="text-xl font-bold text-yellow-400">
+                    Book {selectedPackage.name}
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    {selectedPackage.price} • {selectedPackage.duration}
+                  </p>
                 </div>
                 <button
                   onClick={() => setShowPopup(false)}
@@ -329,10 +423,15 @@ ${formData.message || 'No additional message'}
 
               {/* Package Highlights */}
               <div className="p-6 border-b border-gray-700">
-                <h4 className="text-yellow-400 font-semibold mb-3">Package Includes:</h4>
+                <h4 className="text-yellow-400 font-semibold mb-3">
+                  Package Includes:
+                </h4>
                 <div className="grid grid-cols-2 gap-2">
                   {selectedPackage.places.map((place, index) => (
-                    <div key={index} className="flex items-center text-gray-300 text-sm">
+                    <div
+                      key={index}
+                      className="flex items-center text-gray-300 text-sm"
+                    >
                       <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
                       {place}
                     </div>
@@ -428,7 +527,7 @@ ${formData.message || 'No additional message'}
                       value={formData.date}
                       onChange={handleInputChange}
                       required
-                      min={new Date().toISOString().split('T')[0]}
+                      min={new Date().toISOString().split("T")[0]}
                       className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
                     />
                   </div>
