@@ -5,7 +5,7 @@ const PackageFeatures = () => {
     {
       id: 1,
       title: "Thrilling Jeep Safari",
-      description: "Humari signature Jeep Safari aapko liye gi adventure aur natural beauty ki shaandaar duniya mein. Ye safari aapko desert ke beech mein le jaati hai, jahan aap raw beauty ko mehsoos kar sakte hain.",
+      description: "Humari signature Jeep Safari aapko liye adventure aur natural beauty ki shandar duniya mein. Ye safari aapko desert ke beech mein le jaati hai, jahan aap raw beauty ko mehsoos kar sakte hain.",
       highlights: [
         "Sham ki Safari: Shaanedaar sunset ka nazara",
         "Subah ki Safari: Serene morning mein sunrise",
@@ -16,24 +16,13 @@ const PackageFeatures = () => {
     {
       id: 2,
       title: "Classic Camel Safari",
-      description: "Apne desert ke adventure ko traditional andaaz mein jiyen. Oont ki aaramdaaz sawari par baithe hue pure sand dunes ka maza lo. Ye ek peaceful experience hai jo aapko vintage Arabia ki yaad dila dega.",
+      description: "Apne desert ke adventure ko traditional andaaz mein jiyen. Oont ki aaramdayak sawari par baithe hue pure sand dunes ka maza lo. Ye ek peaceful experience hai jo aapko vintage Arabia ki yaad dila dega.",
       highlights: [
-        "Authentic Experience: Wahiyat culture se judein",
-        "Perfect for Sunsets: Sunset ke waqt ki sawari khaas",
-        "Dinner Bundles: Frequently cultural shows ke saath"
+        "Apne desert ke adventure ko traditional andaaz mein jiyen.",
+        "Camel ki aaramdaayak sawari par baithe hue golden sand dunes ka pure maza lo.",
+        "Ye ek peaceful experience hai jo aapko vintage Arabia ki yaad dilaayegi."
       ],
       image: "/images/Classic-Camel-Safari.jpg"
-    },
-    {
-      id: 3,
-      title: "Adventurous Dune Bashing",
-      description: "Excitation aur adrenaline ka perfect mix! Hamare experienced drivers aapko powerful 4x4 vehicles mein liye jayenge sand dunes ki thrilling roller-coaster ride par. Ye adventure aapko hamesha yaad rahegi.",
-      highlights: [
-        "Expert Drivers: Poori safety ke saath thrilling experience",
-        "Heart-Pounding Fun: Dunes ki upar-neech hoti hui ride",
-        "Must-Do Activity: Dubai desert ka sabse popular adventure"
-      ],
-      image: "/images/Adventurous-Dune-Bashing.webp"
     },
     {
       id: 4,

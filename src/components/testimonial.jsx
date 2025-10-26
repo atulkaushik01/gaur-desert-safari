@@ -30,7 +30,7 @@ const Testimonials = () => {
       location: "Ahmedabad",
       photo: "/api/placeholder/80/80",
       rating: 5,
-      review: "25 years of experience really shows! They know all the hidden gems of Jaisalmer. Best desert safari company.",
+      review: "10+ of experience really shows! They know all the hidden gems of Jaisalmer. Best desert safari company.",
       date: "November 2023"
     },
     {
@@ -84,7 +84,7 @@ const Testimonials = () => {
       location: "Goa",
       photo: "/api/placeholder/80/80",
       rating: 5,
-      review: "Best decision to choose Gaur Desert Safari. Their 25 years experience really makes a difference in service quality.",
+      review: "Best decision to choose Gaur Desert Safari. Their 10+ experience really makes a difference in service quality.",
       date: "May 2023"
     },
     {
@@ -174,7 +174,7 @@ const Testimonials = () => {
       location: "Ludhiana",
       photo: "/api/placeholder/80/80",
       rating: 5,
-      review: "25 years in business and it shows! Professional, reliable, and truly authentic desert experience.",
+      review: "10+ in business and it shows! Professional, reliable, and truly authentic desert experience.",
       date: "July 2022"
     },
     {

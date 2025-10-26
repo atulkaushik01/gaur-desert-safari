@@ -64,7 +64,7 @@ const About = () => {
                 paddingTop: "4rem",
               }}
             >
-              Gaur Desert Safari – Your Trusted Guide for 25 Years in the Heart of the Thar
+              Gaur Desert Safari – Your Trusted Guide for 10+ Years in the Heart of the Thar
             </h1>
             <div
               style={{
@@ -118,7 +118,7 @@ const About = () => {
                   fontWeight: "600",
                 }}
               >
-                Our Heritage: A Legacy of 25 Years in Jaisalmer Tourism
+                Our Heritage: A Legacy of 10+ Years in Jaisalmer Tourism
               </h2>
               <p
                 style={{
@@ -132,7 +132,7 @@ const About = () => {
                 essence of the Thar Desert. Our journey began with a simple passion:
                 to share the magic of our homeland with the world. What started as a
                 humble endeavor has blossomed into one of Jaisalmer's most respected
-                and experienced tour operators. For 25 years, we haven't just been
+                and experienced tour operators. For 10+ years, we haven't just been
                 organizing trips; we have been creating memories, building
                 relationships, and guiding explorers through the soul-stirring
                 landscape of Rajasthan.
@@ -178,7 +178,7 @@ const About = () => {
                 >
                   <strong style={{ color: "#FFD700" }}>Unmatched Expertise:</strong>{" "}
                   <span style={{ opacity: "0.9" }}>
-                    With 25 years of intimate knowledge, we know Jaisalmer and its hidden gems like the back of our hand. Our
+                    With 10+ years of intimate knowledge, we know Jaisalmer and its hidden gems like the back of our hand. Our
                     deep-rooted local connections ensure you get an experience that is both authentic and exclusive.
                   </span>
                 </li>
@@ -494,7 +494,7 @@ const About = () => {
                 }}
               >
                 At Gaur Desert Safari, we don't just sell packages; we invite you to
-                become a part of our story—a story woven over 25 years of golden
+                become a part of our story—a story woven over 10+ years of golden
                 sunsets, desert melodies, and the warm smiles of Rajasthan.
               </p>
               <p

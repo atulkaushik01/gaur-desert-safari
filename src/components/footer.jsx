@@ -38,7 +38,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold text-yellow-400">Gaur Desert Safari</h3>
             </div>
             <p className="text-gray-300 mb-4 text-lg leading-relaxed">
-              Experience the magic of Jaisalmer with 25 years of expertise. We offer unforgettable 
+              Experience the magic of Jaisalmer with 10+ years of expertise. We offer unforgettable 
               desert adventures, cultural experiences, and lifetime memories in the heart of Thar Desert.
             </p>
             <div className="flex space-x-4">

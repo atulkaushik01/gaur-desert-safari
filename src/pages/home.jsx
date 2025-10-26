@@ -530,8 +530,8 @@ ${formData.message || 'Interested in desert safari experience'}
       <div className="relative z-10">
         <ScrollVelocity
           texts={[
-            "Jaisalmer War Museum • Gadisar Lake • Golden Fort • Salem Singh Haveli • Patwo Ki Haveli • Badabagh",
-            "Kuldhara • Sam Sand Dunes • Khuri Desert • Tanot Mata • Longewala • Jaisalmer Border",
+            "Jaisalmer War Museum • Gadisar Lake • Golden Fort • Salem Singh Haveli • Patwo Ki Haveli • Badabagh •",
+            "Kuldhara • Sam Sand Dunes • Khuri Desert • Tanot Mata • Longewala • Jaisalmer Border •",
           ]}
           velocity={100}
           className="custom-scroll-text text-white"

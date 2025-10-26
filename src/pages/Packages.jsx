@@ -182,7 +182,7 @@ ${formData.message || 'No additional message'}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Choose from our carefully curated packages to experience the best of Jaisalmer. 
-            25 years of expertise in creating unforgettable memories.
+            10+ years of expertise in creating unforgettable memories.
           </p>
           <div className="w-24 h-1 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
         </div>
@@ -288,7 +288,7 @@ ${formData.message || 'No additional message'}
                 <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🏆</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">25 Years Experience</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">10+ Years Experience</h3>
                 <p className="text-gray-300">Trusted by thousands of travelers since 1999</p>
               </div>
               <div className="text-center">
