@@ -1,41 +1,41 @@
 import React from 'react';
 
 const PackageFeatures = () => {
-  const features = [
-    {
-      id: 1,
-      title: "Thrilling Jeep Safari",
-      description: "Humari signature Jeep Safari aapko liye adventure aur natural beauty ki shandar duniya mein. Ye safari aapko desert ke beech mein le jaati hai, jahan aap raw beauty ko mehsoos kar sakte hain.",
-      highlights: [
-        "Sham ki Safari: Shaanedaar sunset ka nazara",
-        "Subah ki Safari: Serene morning mein sunrise",
-        "Includes Dune Bashing: Ride mein excitement shamil hai!"
-      ],
-      image: "/images/Thrilling-Jeep-Safari.jpg"
-    },
-    {
-      id: 2,
-      title: "Classic Camel Safari",
-      description: "Apne desert ke adventure ko traditional andaaz mein jiyen. Oont ki aaramdayak sawari par baithe hue pure sand dunes ka maza lo. Ye ek peaceful experience hai jo aapko vintage Arabia ki yaad dila dega.",
-      highlights: [
-        "Apne desert ke adventure ko traditional andaaz mein jiyen.",
-        "Camel ki aaramdaayak sawari par baithe hue golden sand dunes ka pure maza lo.",
-        "Ye ek peaceful experience hai jo aapko vintage Arabia ki yaad dilaayegi."
-      ],
-      image: "/images/Classic-Camel-Safari.jpg"
-    },
-    {
-      id: 4,
-      title: "Fun Sandboarding",
-      description: "Kya aapne kabhi snowboarding ki hai? Ab try kijiye Sandboarding! Dunes ki slopes par board se slide karna ek fun-filled activity hai jo har age ke logon ko pasand aati hai.",
-      highlights: [
-        "Easy to Learn: Beginners ke liye bhi aasan hai",
-        "Unique Sport: Desert mein ek alag tarah ka adventure",
-        "Great for Photos: Shandaar photos khichne ka mauka"
-      ],
-      image: "/images/Fun-Sandboarding.jpg"
-    }
-  ];
+const features = [
+  {
+    id: 1,
+    title: "Thrilling Jeep Safari",
+    description: "Our signature Jeep Safari takes you into a world of adventure and natural beauty. This safari leads you through the heart of the desert, where you can experience raw beauty.",
+    highlights: [
+      "Evening Safari: Spectacular sunset views",
+      "Morning Safari: Serene sunrise experience", 
+      "Includes Dune Bashing: Exciting ride included!"
+    ],
+    image: "/images/Thrilling-Jeep-Safari.jpg"
+  },
+  {
+    id: 2,
+    title: "Classic Camel Safari",
+    description: "Experience your desert adventure in traditional style. Enjoy the pure pleasure of golden sand dunes while riding on a comfortable camel. This peaceful experience will remind you of vintage Arabia.",
+    highlights: [
+      "Traditional Experience: Authentic desert journey",
+      "Comfortable Camel Ride: Smooth travel on golden dunes",
+      "Peaceful Experience: Tranquil memories of vintage Arabia"
+    ],
+    image: "/images/Classic-Camel-Safari.jpg"
+  },
+  {
+    id: 4,
+    title: "Fun Sandboarding",
+    description: "Have you ever tried snowboarding? Now try Sandboarding! Sliding down dune slopes on a board is a fun-filled activity that people of all ages enjoy.",
+    highlights: [
+      "Easy to Learn: Simple for beginners too",
+      "Unique Sport: Different kind of desert adventure",
+      "Great for Photos: Perfect opportunity for amazing photos"
+    ],
+    image: "/images/Fun-Sandboarding.jpg"
+  }
+];
 
   return (
     <section className="w-full py-8 md:py-12 bg-black">
