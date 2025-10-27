@@ -57,12 +57,12 @@ const Home = () => {
     {
       id: "6",
       img: "/images/Bada-Bagh.jpg",
-      height: 700,
+      height: 600,
     },
     {
       id: "7",
       img: "/images/Kuldhara.jpeg",
-      height: 600,
+      height: 800,
     },
     {
       id: "8",
@@ -72,22 +72,22 @@ const Home = () => {
     {
       id: "9",
       img: "/images/Khuri-Desert.jpg",
-      height: 700,
+      height: 800,
     },
     {
       id: "10",
       img: "/images/Tanot-Mata-Temple.jpg",
-      height: 800,
+      height: 600,
     },
     {
       id: "11",
       img: "/images/Longewala.jfif",
-      height: 500,
+      height: 800,
     },
     {
       id: "12",
       img: "/images/Jaisalmer-Border.jpg",
-      height: 400,
+      height: 600,
     },
   ];
 
