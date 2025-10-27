@@ -31,7 +31,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="bg-black py-20 px-4 sm:px-6 lg:px-8 xl:py-28">
+    <section className="bg-black py-20 px-4 sm:px-6 lg:px-8 xl:py-10">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header - Larger for Desktop */}
