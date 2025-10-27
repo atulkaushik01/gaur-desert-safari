@@ -144,7 +144,7 @@ const Footer = () => {
               </h4>
               <div className="space-y-2">
                 <a
-                  href="https://yourdomain.com/about"
+                  href="https://gaurdesertsafari.in/about"
                   className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -152,7 +152,7 @@ const Footer = () => {
                   About Us
                 </a>
                 <a
-                  href="https://yourdomain.com/contact"
+                  href="https://gaurdesertsafari.in/contact"
                   className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg"
                   target="_blank"
                   rel="noopener noreferrer"
