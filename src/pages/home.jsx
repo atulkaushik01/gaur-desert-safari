@@ -61,7 +61,7 @@ const Home = () => {
     },
     {
       id: "7",
-      img: "/images/Kuldhara.jpg",
+      img: "/images/Kuldhara.jpeg",
       height: 600,
     },
     {
@@ -493,12 +493,12 @@ ${formData.message || "Interested in desert safari experience"}
                     Historical places & cultural experience
                   </p>
                   <div className="text-2xl font-bold text-white mb-4">
-                    ₹2,499
+                    ₹999 / person
                   </div>
                   <button
                     onClick={() => handlePackageSelect(
                       "Heritage Explorer", 
-                      "₹2,499", 
+                      "₹999", 
                       "Historical places & cultural experience"
                     )}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
@@ -516,12 +516,12 @@ ${formData.message || "Interested in desert safari experience"}
                     Camel safari & cultural shows
                   </p>
                   <div className="text-2xl font-bold text-white mb-4">
-                    ₹3,999
+                    ₹2,999 / person
                   </div>
                   <button
                     onClick={() => handlePackageSelect(
                       "Desert Adventure", 
-                      "₹3,999", 
+                      "₹2,999", 
                       "Camel safari & cultural shows"
                     )}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
@@ -539,12 +539,12 @@ ${formData.message || "Interested in desert safari experience"}
                     2 days with all attractions
                   </p>
                   <div className="text-2xl font-bold text-white mb-4">
-                    ₹7,999
+                    ₹11,999 / person
                   </div>
                   <button
                     onClick={() => handlePackageSelect(
                       "Complete Experience", 
-                      "₹7,999", 
+                      "₹11,999", 
                       "2 days with all attractions"
                     )}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
