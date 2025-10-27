@@ -1,4 +1,9 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+import ScrollVelocity from "../components/ScrollVelocity";
+import Masonry from "../components/masonryImages";
+import Testimonials from "../components/testimonial";
+import PackageFeatures from "../components/packageFeatures";
+import FAQSection from "../components/faq";
 import {
   FaTimes,
   FaWhatsapp,
@@ -9,11 +14,11 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-const Packages = () => {
-  const [selectedPackage, setSelectedPackage] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+const Home = () => {
   const videoRef = useRef(null);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [showBookingPopup, setShowBookingPopup] = useState(false);
+  const [showPackagesMenu, setShowPackagesMenu] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,124 +28,67 @@ const Packages = () => {
     message: "",
   });
 
-  const packages = [
-    // ... (aapka existing packages array - exactly same rakhen)
+  const items = [
     {
-      id: 1,
-      name: "Heritage Explorer",
-      price: "₹999",
-      duration: "4 Hours",
-      places: [
-        "Golden Fort",
-        "Patwon Ki Haveli",
-        "Salem Singh Haveli",
-        "Gadisar Lake",
-        "War Museum",
-      ],
-      highlights: [
-        "Guided Fort Tour",
-        "Haveli Photography",
-        "Lake Sunset",
-        "Local Guide",
-      ],
-      bestFor: "History & Architecture Lovers",
+      id: "1",
+      img: "/images/Jaisalmer-War-Museum.jpg",
+      height: 800,
     },
     {
-      id: 2,
-      name: "Desert Adventure",
-      price: "₹2,999",
-      duration: "8 Hours",
-      places: [
-        "Sam Sand Dunes (1 Night Stay In Camp)",
-        "Camel Safari",
-        "Cultural Show (Live Performance -DJ Night)",
-        "Desert Camp Dinner + Breakfast",
-      ],
-      highlights: [
-        "Camel Ride",
-        "Sunset View",
-        "Folk Dance",
-        "Traditional Dinner",
-      ],
-      bestFor: "Adventure Seekers",
+      id: "2",
+      img: "/images/GadisarLake.jpeg",
+      height: 600,
     },
     {
-      id: 3,
-      name: "Mystical Jaisalmer",
-      price: "₹799",
-      duration: "3 Hours",
-      places: [
-        "Kuldhara Village (World 3rd Haunted Place)",
-        "Bada Bagh",
-      ],
-      highlights: [
-        "Ghost Village",
-        "Royal Cenotaphs",
-      ],
-      bestFor: "Mystery & History Buffs",
+      id: "3",
+      img: "/images/Golder-Fort.jpg",
+      height: 800,
     },
     {
-      id: 4,
-      name: "Patriotic Trail",  
-      price: "₹2,499",
-      duration: "12 Hours",
-      places: ["Tanot Mata Temple", "Longewala", "Jaisalmer Border Visit (0 Point)"],
-      highlights: [
-        "Tanot Mata Temple",
-        "Jaisalmer Border Visit",
-        "War Memorial",
-        "Temple Blessings",
-        "Army Stories",
-      ],
-      bestFor: "Patriotic Travelers",
+      id: "4",
+      img: "/images/Salim-Singh-Ki-Haveli.jfif",
+      height: 600,
     },
     {
-      id: 5,
-      name: "Complete Jaisalmer",
-      price: "₹11,999",
-      duration: "1 Days",
-      places: [
-        "All 12 Major Attractions",
-        "Desert Camp Stay",
-        "Breakfast & Dinner",
-      ],
-      highlights: [
-        "Comprehensive Tour",
-        "Overnight Stay",
-        "All Transfers",
-        "Expert Guide",
-      ],
-      bestFor: "First-time Visitors",
+      id: "5",
+      img: "/images/Patwon-Ki-Haveli.jpg",
+      height: 800,
     },
     {
-      id: 6,
-      name: "Desert Serenity",
-      price: "₹3,499",
-      duration: "7 Hours",
-      places: ["Khuri Desert", "Sand Dunes", "Village Visit", "Local Culture"],
-      highlights: [
-        "Less Crowded",
-        "Authentic Experience",
-        "Village Life",
-        "Peaceful Dunes",
-      ],
-      bestFor: "Peace Seekers",
+      id: "6",
+      img: "/images/Bada-Bagh.jpg",
+      height: 700,
     },
-  ];
-
-  const allPlaces = [
-    "Jaisalmer War Museum",
-    "Gadisar Lake",
-    "Golden Fort",
-    "Salem Singh Haveli",
-    "Patwon Ki Haveli",
-    "Bada Bagh",
-    "Kuldhara",
-    "Sam Sand Dunes",
-    "Khuri Desert",
-    "Tanot Mata",
-    "Longewala",
-    "Jaisalmer Border",
+    {
+      id: "7",
+      img: "/images/Kuldhara.jpg",
+      height: 600,
+    },
+    {
+      id: "8",
+      img: "/images/Sam-Sand-Dunes.jpg",
+      height: 600,
+    },
+    {
+      id: "9",
+      img: "/images/Khuri-Desert.jpg",
+      height: 700,
+    },
+    {
+      id: "10",
+      img: "/images/Tanot-Mata-Temple.jpg",
+      height: 800,
+    },
+    {
+      id: "11",
+      img: "/images/Longewala.jfif",
+      height: 500,
+    },
+    {
+      id: "12",
+      img: "/images/Jaisalmer-Border.jpg",
+      height: 400,
+    },
   ];
 
   // Handle form input changes
@@ -151,10 +99,9 @@ const Packages = () => {
     });
   };
 
-  // Handle package selection
-  const handleBookPackage = (pkg) => {
-    setSelectedPackage(pkg);
-    setShowPopup(true);
+  // Handle Book Safari button click
+  const handleBookSafari = () => {
+    setShowBookingPopup(true);
     // Set default date to tomorrow
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -164,36 +111,42 @@ const Packages = () => {
     }));
   };
 
-  // Generate WhatsApp message
-  const generateWhatsAppMessage = () => {
-    const packageDetails = `
-🏜️ *GAUR DESERT SAFARI BOOKING* 🏜️
+  // Handle Explore Packages button click
+  const handleExplorePackages = () => {
+    setShowPackagesMenu(true);
+  };
 
-*Package Details:*
-📦 Package: ${selectedPackage.name}
-💰 Price: ${selectedPackage.price}
-⏰ Duration: ${selectedPackage.duration}
-🎯 Best For: ${selectedPackage.bestFor}
+  // Handle package selection
+  const handlePackageSelect = (packageName, price, description) => {
+    setShowPackagesMenu(false);
+    setFormData(prev => ({
+      ...prev,
+      message: `Interested in ${packageName} (${price}) - ${description}`
+    }));
+    setShowBookingPopup(true);
+  };
+
+  // Generate WhatsApp message for general booking
+  const generateWhatsAppMessage = () => {
+    const bookingDetails = `
+🏜️ *GAUR DESERT SAFARI - BOOKING INQUIRY* 🏜️
 
 *Customer Details:*
 👤 Name: ${formData.name}
 📞 Phone: ${formData.phone}
 📧 Email: ${formData.email}
 👥 People: ${formData.people}
-📅 Date: ${formData.date}
+📅 Preferred Date: ${formData.date}
 
-*Places Included:*
-${selectedPackage.places.map((place) => `📍 ${place}`).join("\n")}
-
-*Additional Message:*
-${formData.message || "No additional message"}
+*Package Interest:*
+${formData.message || "Interested in desert safari experience"}
 
 ---
 🌵 Booked via Gaur Desert Safari Website
 ⏰ Submitted at: ${new Date().toLocaleString("en-IN")}
     `;
 
-    return encodeURIComponent(packageDetails);
+    return encodeURIComponent(bookingDetails);
   };
 
   // Handle form submission
@@ -205,7 +158,7 @@ ${formData.message || "No additional message"}
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
     window.open(whatsappURL, "_blank");
-    setShowPopup(false);
+    setShowBookingPopup(false);
     setFormData({
       name: "",
       phone: "",
@@ -217,365 +170,503 @@ ${formData.message || "No additional message"}
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          onLoadedData={() => setIsVideoLoaded(true)}
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
-        >
-          <source src="./videos/sand.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+    <>
+      {/* Banner Section - Fixed padding and z-index issues */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+        {/* Background Video */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            onLoadedData={() => setIsVideoLoaded(true)}
+            className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
+          >
+            <source src="../videos/travel.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
-        {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
 
-      {/* Content - Everything same, bas outer div mein relative z-10 add kiya */}
-      <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl mt-20 font-bold text-yellow-400 mb-4">
-            Desert Safari Packages Jaisalmer - Best Prices & Deals
+        {/* Content - Fixed z-index and spacing */}
+        <div className="relative z-10 text-center text-white w-full px-3 sm:px-6 lg:px-8 mx-auto mt-8 md:mt-0 max-w-[95vw]">
+          {/* Main Heading */}
+          <h1 className="text-[2.75rem] leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+            Experience The
+            <span className="block text-yellow-400 mt-2 sm:mt-2">
+              Desert Safari
+            </span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Choose from our exclusive desert tour packages including camel
-            safari, jeep tours and cultural experiences in Jaisalmer desert.
+
+          {/* Subtitle */}
+          <p className="text-[0.9rem] leading-snug sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-[90vw] sm:max-w-2xl md:max-w-3xl mx-auto">
+            Experience the ultimate desert safari in Jaisalmer with Gaur Desert
+            Safari. Book jeep safari, camel rides, dune bashing and sandboarding
+            adventures. 10+ years of trusted service in Rajasthan tourism.
           </p>
-          <div className="w-24 h-1 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
-        </div>
 
-        {/* All Places Covered Section */}
-        <div className="max-w-6xl mx-auto mb-12">
-          <div className="glassmorphism-card rounded-2xl p-8">
-            <h2 className="text-2xl font-bold text-yellow-400 mb-6 text-center">
-              All Places We Cover
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {allPlaces.map((place, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-3 p-3 bg-black/30 rounded-lg"
-                >
-                  <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center shrink-0">
-                    <span className="text-black font-bold text-sm">🏜️</span>
-                  </div>
-                  <span className="text-gray-200 text-sm">{place}</span>
-                </div>
-              ))}
-            </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-12">
+            <button
+              onClick={handleBookSafari}
+              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-lg w-full max-w-[280px] sm:w-auto"
+            >
+              Book Your Safari
+            </button>
+            <button
+              onClick={handleExplorePackages}
+              className="border-2 border-white hover:bg-white/20 text-white font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-sm sm:text-lg transition-all duration-300 transform hover:scale-105 w-full max-w-[280px] sm:w-auto"
+            >
+              Explore Packages
+            </button>
           </div>
-        </div>
 
-        {/* Packages Grid */}
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
+          {/* Features - Added bottom margin to prevent overlap */}
+          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-16 mb-16 sm:mb-20 max-w-[90vw] sm:max-w-4xl mx-auto">
+            {[
+              {
+                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+                title: "Full Day Experience",
+                desc: "Sunrise to sunset desert adventure",
+              },
+              {
+                icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+                title: "Best Locations",
+                desc: "Premium desert camps & routes",
+              },
+              {
+                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+                title: "Safety First",
+                desc: "Professional guides & equipment",
+              },
+            ].map((feature, index) => (
               <div
-                key={pkg.id}
-                className="glassmorphism-card rounded-2xl p-6 hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-yellow-400"
+                key={index}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20"
               >
-                {/* Package Header */}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-yellow-400 mb-2">
-                    {pkg.name}
-                  </h3>
-                  <div className="flex justify-center items-baseline space-x-2 mb-3">
-                    <span className="text-3xl font-bold text-white">
-                      {pkg.price}
-                    </span>
-                    <span className="text-gray-400">/ person</span>
-                  </div>
-                  <div className="bg-yellow-400/20 text-yellow-400 py-1 px-3 rounded-full text-sm font-semibold inline-block">
-                    {pkg.duration}
-                  </div>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={feature.icon}
+                    />
+                  </svg>
                 </div>
-
-                {/* Best For */}
-                <div className="mb-4 text-center">
-                  <span className="text-gray-400 text-sm">Best for</span>
-                  <p className="text-white font-semibold">{pkg.bestFor}</p>
-                </div>
-
-                {/* Places Covered */}
-                <div className="mb-6">
-                  <h4 className="text-yellow-400 font-semibold mb-3 flex items-center">
-                    <span className="mr-2">📍</span>
-                    Places Covered
-                  </h4>
-                  <ul className="space-y-2">
-                    {pkg.places.map((place, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center text-gray-300 text-sm"
-                      >
-                        <span className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></span>
-                        {place}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Highlights */}
-                <div className="mb-6">
-                  <h4 className="text-yellow-400 font-semibold mb-3 flex items-center">
-                    <span className="mr-2">⭐</span>
-                    Experience Highlights
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {pkg.highlights.map((highlight, index) => (
-                      <span
-                        key={index}
-                        className="bg-yellow-400/10 text-yellow-400 px-3 py-1 rounded-full text-xs font-medium"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <button
-                  onClick={() => handleBookPackage(pkg)}
-                  className="w-full bg-linear-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 px-6 rounded-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-                >
-                  <FaWhatsapp className="w-5 h-5" />
-                  <span>Book This Package</span>
-                </button>
+                <h3 className="text-base sm:text-lg font-semibold mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-xs sm:text-sm opacity-90">{feature.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Why Choose Us Section */}
-        <div className="max-w-6xl mx-auto mt-16">
-          <div className="glassmorphism-card rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-yellow-400 mb-6">
-              Why Choose Gaur Desert Safari?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏆</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  10+ Years Experience
+        {/* Scroll Indicator - Fixed positioning and visibility */}
+        <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="animate-bounce">
+            <svg
+              className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Popup Modal */}
+      {showBookingPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="glassmorphism-card rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            {/* Popup Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-700">
+              <div>
+                <h3 className="text-xl font-bold text-yellow-400">
+                  Book Your Desert Safari
                 </h3>
-                <p className="text-gray-300">
-                  Trusted by thousands of travelers since 1999
+                <p className="text-gray-300 text-sm">
+                  Customized Experience • Best Price Guarantee
                 </p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💰</span>
+              <button
+                onClick={() => setShowBookingPopup(false)}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <FaTimes className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Package Highlights */}
+            <div className="p-6 border-b border-gray-700">
+              <h4 className="text-yellow-400 font-semibold mb-3">
+                What We Offer:
+              </h4>
+              <div className="grid grid-cols-2 gap-2 text-sm text-gray-300">
+                <div className="flex items-center">
+                  <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
+                  Camel Safari
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  Best Price Guarantee
-                </h3>
-                <p className="text-gray-300">
-                  Quality experiences at competitive prices
-                </p>
+                <div className="flex items-center">
+                  <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
+                  Cultural Shows
+                </div>
+                <div className="flex items-center">
+                  <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
+                  Desert Camp
+                </div>
+                <div className="flex items-center">
+                  <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
+                  Sunset Views
+                </div>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🛡️</span>
+            </div>
+
+            {/* Booking Form */}
+            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+              {/* Name Field */}
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                  <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              {/* Phone Field */}
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                  <FaPhone className="w-4 h-4 text-yellow-400 mr-2" />
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                  placeholder="Enter your WhatsApp number"
+                />
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                  <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
+                  placeholder="Enter your email (optional)"
+                />
+              </div>
+
+              {/* People & Date Row */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Number of People */}
+                <div>
+                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                    <FaUsers className="w-4 h-4 text-yellow-400 mr-2" />
+                    People *
+                  </label>
+                  <select
+                    name="people"
+                    value={formData.people}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
+                  >
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5 People</option>
+                    <option value="6">6+ People</option>
+                  </select>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  100% Safety
-                </h3>
-                <p className="text-gray-300">
-                  Well-maintained vehicles & experienced guides
-                </p>
+
+                {/* Date */}
+                <div>
+                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                    <FaCalendar className="w-4 h-4 text-yellow-400 mr-2" />
+                    Tour Date *
+                  </label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    required
+                    min={new Date().toISOString().split("T")[0]}
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
+                  />
+                </div>
+              </div>
+
+              {/* Additional Message */}
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
+                  <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
+                  Additional Requirements
+                </label>
+                <textarea
+                  name="message"
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 resize-none"
+                  placeholder="Any special requirements or preferred package..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full bg-linear-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                <span>Send via WhatsApp</span>
+              </button>
+
+              {/* Note */}
+              <p className="text-gray-400 text-xs text-center">
+                You'll be redirected to WhatsApp to confirm your booking
+              </p>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Packages Menu Popup */}
+      {showPackagesMenu && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="glassmorphism-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center p-6 border-b border-gray-700">
+              <h3 className="text-2xl font-bold text-yellow-400">
+                Our Safari Packages
+              </h3>
+              <button
+                onClick={() => setShowPackagesMenu(false)}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
+                <FaTimes className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Package 1 */}
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Heritage Explorer
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Historical places & cultural experience
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹2,499
+                  </div>
+                  <button
+                    onClick={() => handlePackageSelect(
+                      "Heritage Explorer", 
+                      "₹2,499", 
+                      "Historical places & cultural experience"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    Book This Package
+                  </button>
+                </div>
+
+                {/* Package 2 */}
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Desert Adventure
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Camel safari & cultural shows
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹3,999
+                  </div>
+                  <button
+                    onClick={() => handlePackageSelect(
+                      "Desert Adventure", 
+                      "₹3,999", 
+                      "Camel safari & cultural shows"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    Book This Package
+                  </button>
+                </div>
+
+                {/* Package 3 */}
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Complete Experience
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    2 days with all attractions
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    ₹7,999
+                  </div>
+                  <button
+                    onClick={() => handlePackageSelect(
+                      "Complete Experience", 
+                      "₹7,999", 
+                      "2 days with all attractions"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    Book This Package
+                  </button>
+                </div>
+
+                {/* Package 4 */}
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
+                  <h4 className="text-xl font-bold text-yellow-400 mb-2">
+                    Custom Package
+                  </h4>
+                  <p className="text-gray-300 mb-4">
+                    Tailored to your preferences
+                  </p>
+                  <div className="text-2xl font-bold text-white mb-4">
+                    Custom Price
+                  </div>
+                  <button
+                    onClick={() => {
+                      setShowPackagesMenu(false);
+                      handleBookSafari();
+                    }}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    Get Quote
+                  </button>
+                </div>
+              </div>
+
+              {/* Package Features */}
+              <div className="mt-8 p-6 bg-black/20 rounded-xl border border-gray-700">
+                <h4 className="text-yellow-400 font-bold text-lg mb-4">All Packages Include:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Professional Guide
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Safety Equipment
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Hotel Pickup & Drop
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Traditional Lunch
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Cultural Activities
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Photography Sessions
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      )}
 
-        {/* Booking Popup Modal */}
-        {showPopup && selectedPackage && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50">
-            <div className="glassmorphism-card rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-              {/* Popup Header */}
-              <div className="flex justify-between items-center p-6 border-b border-gray-700">
-                <div>
-                  <h3 className="text-xl font-bold text-yellow-400">
-                    Book {selectedPackage.name}
-                  </h3>
-                  <p className="text-gray-300 text-sm">
-                    {selectedPackage.price} • {selectedPackage.duration}
-                  </p>
-                </div>
-                <button
-                  onClick={() => setShowPopup(false)}
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  <FaTimes className="w-6 h-6" />
-                </button>
-              </div>
-
-              {/* Package Highlights */}
-              <div className="p-6 border-b border-gray-700">
-                <h4 className="text-yellow-400 font-semibold mb-3">
-                  Package Includes:
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {selectedPackage.places.map((place, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center text-gray-300 text-sm"
-                    >
-                      <FaMapMarkerAlt className="w-3 h-3 text-yellow-400 mr-2" />
-                      {place}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Booking Form */}
-              <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                {/* Name Field */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                    <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                {/* Phone Field */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                    <FaPhone className="w-4 h-4 text-yellow-400 mr-2" />
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
-                    placeholder="Enter your WhatsApp number"
-                  />
-                </div>
-
-                {/* Email Field */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                    <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300"
-                    placeholder="Enter your email (optional)"
-                  />
-                </div>
-
-                {/* People & Date Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  {/* Number of People */}
-                  <div>
-                    <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                      <FaUsers className="w-4 h-4 text-yellow-400 mr-2" />
-                      People *
-                    </label>
-                    <select
-                      name="people"
-                      value={formData.people}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
-                    >
-                      <option value="1">1 Person</option>
-                      <option value="2">2 People</option>
-                      <option value="3">3 People</option>
-                      <option value="4">4 People</option>
-                      <option value="5">5 People</option>
-                      <option value="6">6+ People</option>
-                    </select>
-                  </div>
-
-                  {/* Date */}
-                  <div>
-                    <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                      <FaCalendar className="w-4 h-4 text-yellow-400 mr-2" />
-                      Tour Date *
-                    </label>
-                    <input
-                      type="date"
-                      name="date"
-                      value={formData.date}
-                      onChange={handleInputChange}
-                      required
-                      min={new Date().toISOString().split("T")[0]}
-                      className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                {/* Additional Message */}
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-2">
-                    <FaUser className="w-4 h-4 text-yellow-400 mr-2" />
-                    Additional Requirements
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={3}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-white placeholder-gray-400 transition-all duration-300 resize-none"
-                    placeholder="Any special requirements or questions..."
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-linear-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-                >
-                  <FaWhatsapp className="w-5 h-5" />
-                  <span>Send via WhatsApp</span>
-                </button>
-
-                {/* Note */}
-                <p className="text-gray-400 text-xs text-center">
-                  You'll be redirected to WhatsApp to confirm your booking
-                </p>
-              </form>
-            </div>
-          </div>
-        )}
-
-        {/* Custom CSS for Glassmorphism */}
-        <style jsx>{`
-          .glassmorphism-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-          }
-        `}</style>
+      {/* Running Text */}
+      <div className="relative z-10">
+        <ScrollVelocity
+          texts={[
+            "Jaisalmer War Museum • Gadisar Lake • Golden Fort • Salem Singh Haveli • Patwo Ki Haveli • Badabagh •",
+            "Kuldhara • Sam Sand Dunes • Khuri Desert • Tanot Mata • Longewala • Jaisalmer Border •",
+          ]}
+          velocity={100}
+          className="custom-scroll-text text-white"
+          parallaxClassName="bg-black py-4"
+        />
       </div>
-    </div>
+
+      {/* Image Gallery */}
+      <div className="bg-black min-h-screen py-8 relative z-10">
+        <div className="container mx-auto px-4">
+          <Masonry
+            items={items}
+            ease="power3.out"
+            duration={0.6}
+            stagger={0.05}
+            animateFrom="bottom"
+            scaleOnHover={true}
+            hoverScale={0.95}
+            blurToFocus={true}
+            colorShiftOnHover={false}
+            padding={10}
+          />
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="relative z-10">
+        <Testimonials />
+      </div>
+
+      {/* Package Features Section */}
+      <div className="relative z-10">
+        <PackageFeatures />
+      </div>
+
+      {/* FAQ Section */}
+      <div className="relative z-10">
+        <FAQSection />
+      </div>
+
+      {/* Custom CSS for Glassmorphism */}
+      <style jsx>{`
+        .glassmorphism-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      `}</style>
+    </>
   );
 };
 
-export default Packages;
+export default Home;
