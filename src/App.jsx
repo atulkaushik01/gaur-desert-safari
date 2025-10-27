@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/scrollToTop';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import About from './pages/About';
@@ -10,6 +11,7 @@ import Footer from './components/footer';
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen">
         <Navbar />
         <main className="min-h-screen">
