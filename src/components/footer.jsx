@@ -122,10 +122,10 @@ const Footer = () => {
             
             <h4 className="text-xl font-semibold text-yellow-400 mb-3 mt-6">Quick Links</h4>
             <div className="space-y-2">
-              <a href="/about" className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg">
+              <a href="https://gaurdesertsafari.in/about" className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg">
                 About Us
               </a>
-              <a href="/contact" className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg">
+              <a href="https://gaurdesertsafari.in/contact" className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg">
                 Contact
               </a>
             </div>
