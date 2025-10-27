@@ -116,10 +116,20 @@ const Home = () => {
     setShowPackagesMenu(true);
   };
 
+  // Handle package selection
+  const handlePackageSelect = (packageName, price, description) => {
+    setShowPackagesMenu(false);
+    setFormData(prev => ({
+      ...prev,
+      message: `Interested in ${packageName} (${price}) - ${description}`
+    }));
+    setShowBookingPopup(true);
+  };
+
   // Generate WhatsApp message for general booking
   const generateWhatsAppMessage = () => {
     const bookingDetails = `
-🏜️ *GAUR DESERT SAFARI - GENERAL BOOKING* 🏜️
+🏜️ *GAUR DESERT SAFARI - BOOKING INQUIRY* 🏜️
 
 *Customer Details:*
 👤 Name: ${formData.name}
@@ -128,7 +138,7 @@ const Home = () => {
 👥 People: ${formData.people}
 📅 Preferred Date: ${formData.date}
 
-*Additional Requirements:*
+*Package Interest:*
 ${formData.message || "Interested in desert safari experience"}
 
 ---
@@ -475,7 +485,7 @@ ${formData.message || "Interested in desert safari experience"}
             <div className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Package 1 */}
-                <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">
                     Heritage Explorer
                   </h4>
@@ -486,18 +496,19 @@ ${formData.message || "Interested in desert safari experience"}
                     ₹2,499
                   </div>
                   <button
-                    onClick={() => {
-                      setShowPackagesMenu(false);
-                      window.location.href = "/packages";
-                    }}
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
+                    onClick={() => handlePackageSelect(
+                      "Heritage Explorer", 
+                      "₹2,499", 
+                      "Historical places & cultural experience"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
-                    View Details
+                    Book This Package
                   </button>
                 </div>
 
                 {/* Package 2 */}
-                <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">
                     Desert Adventure
                   </h4>
@@ -508,18 +519,19 @@ ${formData.message || "Interested in desert safari experience"}
                     ₹3,999
                   </div>
                   <button
-                    onClick={() => {
-                      setShowPackagesMenu(false);
-                      window.location.href = "/packages";
-                    }}
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
+                    onClick={() => handlePackageSelect(
+                      "Desert Adventure", 
+                      "₹3,999", 
+                      "Camel safari & cultural shows"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
-                    View Details
+                    Book This Package
                   </button>
                 </div>
 
                 {/* Package 3 */}
-                <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">
                     Complete Experience
                   </h4>
@@ -530,18 +542,19 @@ ${formData.message || "Interested in desert safari experience"}
                     ₹7,999
                   </div>
                   <button
-                    onClick={() => {
-                      setShowPackagesMenu(false);
-                      window.location.href = "/packages";
-                    }}
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
+                    onClick={() => handlePackageSelect(
+                      "Complete Experience", 
+                      "₹7,999", 
+                      "2 days with all attractions"
+                    )}
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
-                    View Details
+                    Book This Package
                   </button>
                 </div>
 
                 {/* Package 4 */}
-                <div className="bg-black/30 rounded-xl p-6 border border-gray-700">
+                <div className="bg-black/30 rounded-xl p-6 border border-gray-700 hover:border-yellow-400 transition-all duration-300">
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">
                     Custom Package
                   </h4>
@@ -556,10 +569,41 @@ ${formData.message || "Interested in desert safari experience"}
                       setShowPackagesMenu(false);
                       handleBookSafari();
                     }}
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300"
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
                   >
                     Get Quote
                   </button>
+                </div>
+              </div>
+
+              {/* Package Features */}
+              <div className="mt-8 p-6 bg-black/20 rounded-xl border border-gray-700">
+                <h4 className="text-yellow-400 font-bold text-lg mb-4">All Packages Include:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Professional Guide
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Safety Equipment
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Hotel Pickup & Drop
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Traditional Lunch
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Cultural Activities
+                  </div>
+                  <div className="flex items-center">
+                    <FaMapMarkerAlt className="w-4 h-4 text-yellow-400 mr-2" />
+                    Photography Sessions
+                  </div>
                 </div>
               </div>
             </div>
