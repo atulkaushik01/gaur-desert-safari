@@ -539,12 +539,12 @@ ${formData.message || "Interested in desert safari experience"}
                     2 days with all attractions
                   </p>
                   <div className="text-2xl font-bold text-white mb-4">
-                    ₹11,999 / person
+                    ₹7,500 / person
                   </div>
                   <button
                     onClick={() => handlePackageSelect(
                       "Complete Experience", 
-                      "₹11,999", 
+                      "₹7,500", 
                       "2 days with all attractions"
                     )}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"

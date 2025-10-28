@@ -97,8 +97,8 @@ const Packages = () => {
     {
       id: 5,
       name: "Complete Jaisalmer",
-      price: "₹11,999",
-      duration: "1 Days",
+      price: "₹7,500",
+      duration: "2 Days",
       places: [
         "All 12 Major Attractions",
         "Desert Camp Stay",
