@@ -35,11 +35,11 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                 >
                   {/* Logo Image */}
-                  <img 
-                    src="/images/logo.png" // Update this path to your actual logo image
+                  {/* <img 
+                    src="/images/logo.png"
                     alt="Logo"
                     className="w-14 h-14 object-contain"
-                  />
+                  /> */}
                   {/* Logo Text */}
                   <span className="text-white font-bold text-xl">Gaur Desert Safari</span>
                 </Link>
@@ -72,11 +72,11 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                 >
                   {/* Logo Image */}
-                  <img 
-                    src="/images/logo.png" // Update this path to your actual logo image
+                  {/* <img 
+                    src="/images/logo.png"
                     alt="Logo"
                     className="w-8 h-8 object-contain"
-                  />
+                  /> */}
                   {/* Logo Text */}
                   <span className="text-white font-bold text-lg">Gaur Desert Safari</span>
                 </Link>
