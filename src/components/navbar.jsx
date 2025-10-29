@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-4xl shadow-lg shadow-black/10">
               
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center justify-between px-6 py-3">
+              <div className="hidden md:flex items-center justify-between">
                 {/* Logo */}
                 <Link 
                   to="/" 
@@ -35,11 +35,11 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                 >
                   {/* Logo Image */}
-                  {/* <img 
+                  <img 
                     src="/images/logo.png"
                     alt="Logo"
-                    className="w-14 h-14 object-contain"
-                  /> */}
+                    className="w-15 h-15 object-contain"
+                  />
                   {/* Logo Text */}
                   <span className="text-white font-bold text-xl">Gaur Desert Safari</span>
                 </Link>
@@ -64,7 +64,7 @@ const Navbar = () => {
               </div>
 
               {/* Mobile Navigation */}
-              <div className="md:hidden flex items-center justify-between px-4 py-3">
+              <div className="md:hidden flex items-center justify-between">
                 {/* Logo */}
                 <Link 
                   to="/" 
@@ -72,11 +72,11 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                 >
                   {/* Logo Image */}
-                  {/* <img 
+                  <img 
                     src="/images/logo.png"
                     alt="Logo"
-                    className="w-8 h-8 object-contain"
-                  /> */}
+                    className="w-15 h-15 object-contain"
+                  />
                   {/* Logo Text */}
                   <span className="text-white font-bold text-lg">Gaur Desert Safari</span>
                 </Link>

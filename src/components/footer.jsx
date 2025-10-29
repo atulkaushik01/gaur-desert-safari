@@ -38,8 +38,13 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-black font-bold text-lg">🏜️</span>
+                <div className="w-26 h-26 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+                  
+                  <img 
+                    src="/images/logo.png"
+                    alt="Gaur Desert Safari Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold text-yellow-400">Gaur Desert Safari</h3>
               </div>
@@ -141,22 +146,6 @@ const Footer = () => {
                 >
                   Contact
                 </Link>
-                
-                {/* Alternative: Using programmatic navigation */}
-                {/* 
-                <button
-                  onClick={() => handleQuickLinkClick('/about')}
-                  className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg w-full text-left"
-                >
-                  About Us
-                </button>
-                <button
-                  onClick={() => handleQuickLinkClick('/contact')}
-                  className="block text-gray-300 hover:text-yellow-400 transition-colors duration-300 text-lg w-full text-left"
-                >
-                  Contact
-                </button>
-                */}
               </div>
             </div>
           </div>
