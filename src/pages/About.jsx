@@ -127,7 +127,7 @@ const About = () => {
                   opacity: "0.9",
                 }}
               >
-                Since 1999, Gaur Desert Safari has been synonymous with trust,
+                Since 2015, Gaur Desert Safari has been synonymous with trust,
                 expertise, and an unwavering commitment to showcasing the true
                 essence of the Thar Desert. Our journey began with a simple passion:
                 to share the magic of our homeland with the world. What started as a
@@ -295,7 +295,7 @@ const About = () => {
                     🏜️
                   </div>
                   <h3 style={{ color: "#FFD700", marginBottom: "0.5rem" }}>
-                    1999
+                  2015
                   </h3>
                   <p style={{ fontSize: "0.9rem", opacity: "0.9" }}>
                     Started with a single camel and a dream to share Jaisalmer's beauty

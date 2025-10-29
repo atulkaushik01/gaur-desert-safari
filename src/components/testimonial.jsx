@@ -352,7 +352,7 @@ const Testimonials = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-gray-700">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">25+</div>
+            <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">10+</div>
             <div className="text-gray-300">Years Experience</div>
           </div>
           <div className="text-center">
