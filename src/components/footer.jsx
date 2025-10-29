@@ -168,7 +168,7 @@ const Footer = () => {
                 className="cursor-pointer text-white px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <FaInstagram className="w-4 h-4" />
-                <span>Developer.b4</span>
+                <span>B4 Dev - Web Development & SEO Specialist</span>
               </button>
             </div>
           </div>
